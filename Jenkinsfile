@@ -33,11 +33,11 @@ pipeline {
 			echo 'Im awesome. I run aways'
 		}
 		success {
-			mail bcc: '', body: 'Pipeline: Basic Steps', cc: '', from: '', replyTo: '', subject: 'Build Successful', to: 'roshni.byju@gmail.com'
+			mail bcc: '', body: 'Pipeline: Basic Steps', cc: '', from: 'roshni.byju@gmail.com', replyTo: '', subject: 'Build Successful', to: 'roshni.byju@gmail.com'
 			echo 'I run when you are successful'
 		}
 		failure {
-			mail bcc: '', body: 'Pipeline: Basic Steps', cc: '', from: '', replyTo: '', subject: 'Build Failed', to: 'roshni.byju@gmail.com'
+			mail bcc: '', body: 'Pipeline: Basic Steps', cc: '', from: 'roshni.byju@gmail.com', replyTo: '', subject: 'Build Failed', to: 'roshni.byju@gmail.com'
 			echo 'I run when you fail'
 		}
 
