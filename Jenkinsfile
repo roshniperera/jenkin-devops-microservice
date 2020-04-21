@@ -15,7 +15,7 @@ pipeline {
 				// sh 'node --version'
 				sh 'mvn --version'
 				sh 'docker version'
-				sh label: 'java_ver Label :', script: 'java --version'
+				sh label: 'java_ver Label :', script: 'java -version'
 				echo "Build"
 				echo "PATH - $PATH"
 				echo "BUILD_NUMBER -$env.BUILD_NUMBER"
