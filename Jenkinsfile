@@ -40,12 +40,14 @@ pipeline {
 			steps {
 				sh "mvn failsafe:integration-test failsafe:verify"
 			}
+		}
 
 		stage('Package') {
 			steps {
 				sh "mvn package -DskipTests"
 			}
 		}
+
 		stage("Build Docker Image") {
 			steps {
 				// docker build -t roshniperera/currency-exchange-microservice:$env.BUILD_TAG
@@ -57,20 +59,20 @@ pipeline {
 		stage("Push Docker Image") {
 			steps {
 				script{
-					docker.withRegistry('', 'dockerhub')
-					dockerImage.push()
-					dockerImage.push('latest')
+					docker.withRegistry('', 'dockerhub');
+					dockerImage.push();
+					dockerImage.push('latest');
 				}
 				
 
 			}
 		}		
-	} 
+	}
 	
 	
 	post {
 		always {
-			echo 'Im awesome. I run aways'
+			echo 'Im awesome. I run always'
 		}
 		success {
 			// mail bcc: '', body: 'Pipeline: Basic Steps', cc: '', from: 'roshni.byju@gmail.com', replyTo: '', subject: 'Build Successful', to: 'roshni.byju@gmail.com'
